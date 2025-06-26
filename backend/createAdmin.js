@@ -3,13 +3,10 @@ const mongoose = require("mongoose");
 const Admin = require("./models/Admin");
 
 mongoose
-  .connect(
-    "mongodb+srv://guriasoumi29:soumi1234@cluster0.bsahqpz.mongodb.net/",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB", err));
 
